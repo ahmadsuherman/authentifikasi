@@ -22,6 +22,17 @@ class RegisterController extends Controller
     |
     */
 
+    
+    public function registerTeacher()
+    {
+        return view('auth.register-teacher');
+    }
+
+    public function registerStaff()
+    {
+        return view('auth.register-staff');
+    }
+
     use RegistersUsers;
 
     /**

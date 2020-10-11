@@ -7,7 +7,7 @@
 
             @if(Auth()->user()->hasRole('student'))
             <div class="card">
-                <div class="card-header" style="background: grey">{{ __('Dashboard Siswa') }}</div>
+                <div class="card-header" style="background: yellow">{{ __('Dashboard Siswa') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -42,7 +42,7 @@
             @elseif(Auth()->user()->hasRole('staff'))
 
              <div class="card">
-                <div class="card-header" style="background: grey">{{ __('Dashboard Staff') }}</div>
+                <div class="card-header" style="background: blue">{{ __('Dashboard Staff') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
