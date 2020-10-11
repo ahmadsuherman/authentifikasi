@@ -19,8 +19,22 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-//Route Untuk Users dan admin, jika mau untuk users saja silahkan tambahkan middleware role:user
-Route::get('/dashboard-users', 'User\UserController@index')->name('dashboard.users');
+//Route untuk register teacher dan staff
+Route::group(['verify' => true], function () {
+	Route::get('/register-teachers', 'Auth\RegisterController@registerTeacher');
+	Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
+});
 
 //Route Untuk Admin saja
-Route::get('/dashboard-admin', 'Admin\AdminController@index')->middleware('role:admin')->name('dashboard.admin');
+Route::group(['middleware' => ['role:admin']], function () {
+	Route::get('/dashboard-admin', 'Admin\AdminController@index')->name('dashboard.admin');
+});
+
+//Route Untuk Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
+Route::group(['middleware' => ['auth']], function () {
+	Route::get('/dashboard', 'User\UserController@index')->name('dashboard.users');
+});
+
+
+
+

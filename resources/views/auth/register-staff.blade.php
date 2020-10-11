@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register Siswa') }}</div>
+                <div class="card-header">{{ __('Register Staff TU') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -76,9 +76,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                         <div class="form-group row">
                             <div class="col-md-6">
-                                <input type="hidden" name="role" value="1">
+                                <input type="hidden" name="role" value="3">
                             </div> 
                         </div>
 

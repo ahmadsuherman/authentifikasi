@@ -16,46 +16,41 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@example.com',
-            'password' => Hash::make('123123123'),
+            'phone' => '08213456789',
+            'password' => Hash::make('admin123123'),
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         $admin->assignRole('admin');
 
-        $petugas_TU = User::create([
-            'name' => 'User',
-            'email' => 'petugas_TU@example.com',
-            'password' => Hash::make('12341234'),
+        $siswa = User::create([
+            'name' => 'Student',
+            'email' => 'student@example.com',
+            'phone' => '08213456789',
+            'password' => Hash::make('student123'),
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        $petugas_TU->assignRole('petugas TU');
+        $siswa->assignRole('student');
 
-        $calon_siswa = User::create([
-            'name' => 'User',
-            'email' => 'calon_siswa@example.com',
-            'password' => Hash::make('12341234'),
+        $guru = User::create([
+            'name' => 'Teacher',
+            'email' => 'teacher@example.com',
+            'phone' => '08213456789',
+            'password' => Hash::make('teacher123'),
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        $calon_siswa->assignRole('calon siswa');
+        $guru->assignRole('teacher');
 
-        $calon_guru = User::create([
-            'name' => 'User',
-            'email' => 'calon_guru@example.com',
-            'password' => Hash::make('12341234'),
+        $staff_TU = User::create([
+            'name' => 'Staff TU',
+            'email' => 'staff@example.com',
+            'phone' => '08213456789',
+            'password' => Hash::make('staff123'),
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        $calon_guru->assignRole('calon guru');
-
-        $calon_petugas_TU = User::create([
-            'name' => 'User',
-            'email' => 'calon_petugas_TU@example.com',
-            'password' => Hash::make('12341234'),
-            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-
-        $calon_petugas_TU->assignRole('calon petugas TU');
+        $staff_TU->assignRole('staff');
     }
 }

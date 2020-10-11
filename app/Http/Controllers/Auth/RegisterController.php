@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-
+            'phone' => ['required', 'min:11', 'max:14'],
         ]);
     }
 
@@ -65,42 +65,43 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if ($data['role'] == 1) {
-        $user = User::create([
+        if($data['role'] == 1) {
+        $students = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->assignRole('calon siswa');
+        $students->assignRole('student');
 
-        return $user;
-        }
+        return $students;
+        }     
 
-        if ($data['role'] == 2) {
-        $user = User::create([
+        if($data['role'] == 2) {
+        $students = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->assignRole('calon guru');
+        $students->assignRole('teacher');
 
-        return $user;
+        return $students;
         }
 
-        if ($data['role'] == 3) {
-        $user = User::create([
+        if($data['role'] == 3) {
+        $students = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->assignRole('calon petugas TU');
+        $students->assignRole('staff');
 
-        return $user;
-        }
-
-        
+        return $students;
+        }     
     }
 }
