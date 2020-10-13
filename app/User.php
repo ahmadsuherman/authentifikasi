@@ -16,9 +16,14 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $fillable = [
-        'name','phone', 'email', 'password',
-    ];
+
+    protected $primaryKey = 'usr_id';
+    protected $guarded = [];
+
+    public function getAuthPassword()
+    {
+        return $this->usr_password;
+    }
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,7 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'usr_password', 'remember_token',
     ];
 
     /**
@@ -35,6 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'usr_email_verified_at' => 'datetime',
     ];
+    protected $dates = ['deleted_at'];
 }

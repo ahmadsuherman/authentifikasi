@@ -61,10 +61,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'usr_name' => ['required', 'string', 'max:255'],
+            'usr_email' => ['required', 'string', 'max:255', 'unique:users,usr_email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'min:11', 'max:14'],
+            'usr_phone' => ['required', 'min:11', 'max:14'],
         ]);
     }
 
@@ -78,10 +78,10 @@ class RegisterController extends Controller
     {
         if($data['role'] == 1) {
         $students = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
+            'usr_name' => $data['usr_name'],
+            'usr_email' => $data['usr_email'],
+            'usr_phone' => $data['usr_phone'],
+            'usr_password' => Hash::make($data['password']),
         ]);
 
         $students->assignRole('student');
@@ -91,10 +91,10 @@ class RegisterController extends Controller
 
         if($data['role'] == 2) {
         $students = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
+            'usr_name' => $data['usr_name'],
+            'usr_email' => $data['usr_email'],
+            'usr_phone' => $data['usr_phone'],
+            'usr_password' => Hash::make($data['password']),
         ]);
 
         $students->assignRole('teacher');
@@ -104,10 +104,10 @@ class RegisterController extends Controller
 
         if($data['role'] == 3) {
         $students = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
+            'usr_name' => $data['usr_name'],
+            'usr_email' => $data['usr_email'],
+            'usr_phone' => $data['usr_phone'],
+            'usr_password' => Hash::make($data['password']),
         ]);
 
         $students->assignRole('staff');

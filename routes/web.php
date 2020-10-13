@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/dashboard', 'User\UserController@index')->name('dashboard.users');
 });
 
+Route::get('/kirim-email', 'EmailController@index');
+
 
 
 

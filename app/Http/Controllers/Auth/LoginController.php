@@ -60,4 +60,9 @@ class LoginController extends Controller
 
         return redirect()->route('dashboard.users');
     }
+
+    public function username()
+    {
+        return 'usr_email';
+    }
 }
