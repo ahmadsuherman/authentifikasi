@@ -98,6 +98,6 @@ $ php artisan serve
 ## Note
 
 - Setiap Register wajib terkoneksi jaringan internet
-- Sementara Verifikasi Register anda meski menghubungi admin
+- Register menggunakan email  yang valid ada agar dapat langsung mencoba
 
 Terimakasih! Selamat Mencoba....
