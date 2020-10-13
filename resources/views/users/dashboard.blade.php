@@ -4,6 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if (\Session::has('success'))
+              <div class="alert alert-success">
+                  <ul>
+                      <li>{!! \Session::get('success') !!}</li>
+                   </ul>
+              </div>
+           @endif
 
             @if(Auth()->user()->hasRole('student'))
             <div class="card">
@@ -59,7 +66,19 @@
 
             @else
 
-            Anda Siapa? Anda Pasti admin? yakan? silahkan Setting di Resources/views/users/dashboard sesuai Tampilan yang anda mau untuk admin, Terimakasih
+            <div class="card">
+                <div class="card-header" style="background: green">{{ __('Dashboard') }} Admin</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
 
             @endif
 

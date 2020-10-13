@@ -89,9 +89,9 @@ class RegisterController extends Controller
 
         if($data['role'] == 1) {
             $user->assignRole('student');
-        }elseif($data['role'] == 2) {
+        } elseif($data['role'] == 2) {
             $user->assignRole('teacher');
-        }elseif($data['role'] == 3) {
+        } elseif($data['role'] == 3) {
             $user->assignRole('staff');
         }
 

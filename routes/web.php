@@ -19,8 +19,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
 Route::get('/account/waiting-verification', 'Auth\AccountController@waitingVerification');
+Route::post('/account/resend-verification', 'Auth\AccountController@resendVerification');
 
-// /auth/verify
 
 //Route untuk register teacher dan staff
 Route::get('/register-teachers', 'Auth\RegisterController@registerTeacher');

@@ -1,3 +1,6 @@
-<h1>Halo {{ $user->usr_name }}</h1>
-link verifikasi 
-<a href="{{url('/account/'.$user->usr_id.'/'.$user->usr_verification_token.'/activate')}}"> CLICK HERE </a><br>
+<center>
+<h1><b>Halo {{ $user->usr_name }}</b></h1> <br>
+<strong> SELAMAT DATANG DI WEB SMK MAHAPUTRA CERDAS UTAMA </strong>
+
+Silahkan klik link di bawah untuk memverifikasi email anda <br>
+<a href="{{url('/account/'.$user->usr_id.'/'.$user->usr_verification_token.'/activate')}}"> CLICK HERE </a>

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class AccountController extends Controller
 {
@@ -16,7 +18,7 @@ class AccountController extends Controller
             $user->usr_email_verified_at = now();
             $user-> save();
 
-            return redirect('/');
+            return redirect('/dashboard')->with('success', 'Selamat akun anda berhasil diverifikasi');;
         }
     }
 
@@ -29,5 +31,9 @@ class AccountController extends Controller
     	}
     }
 
-    
+    public function resendVerification(){
+        $user = Auth::user();
+        Mail::to($user['usr_email'])->send(new SendMail($user));
+        return redirect()->back()->with('success', 'Email verifikasi berhasil dikirim ulang'); 
+    }
 }
