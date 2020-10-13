@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -83,6 +84,7 @@ class RegisterController extends Controller
             'usr_email' => $data['usr_email'],
             'usr_phone' => $data['usr_phone'],
             'usr_password' => Hash::make($data['password']),
+            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
         ]);
 
         if($data['role'] == 1) {
@@ -92,7 +94,7 @@ class RegisterController extends Controller
         }elseif($data['role'] == 3) {
             $user->assignRole('staff');
         }     
-        Mail::to($data['usr_email'])->send(new SendMail($data['usr_name']));
+        Mail::to($data['usr_email'])->send(new SendMail($user));
         return $user;
         
     }

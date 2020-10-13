@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('admin123123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
         ]);
 
         $admin->assignRole('admin');
@@ -29,6 +31,7 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('student123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
         ]);
 
         $siswa->assignRole('student');
@@ -39,6 +42,7 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('teacher123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
         ]);
 
         $guru->assignRole('teacher');
@@ -49,6 +53,7 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('staff123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
         ]);
 
         $staff_TU->assignRole('staff');

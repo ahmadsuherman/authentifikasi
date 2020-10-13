@@ -16,14 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes(['verify' => true]);
+Auth::routes();
+Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountController@verifyToken');
 
 //Route untuk register teacher dan staff
-Route::group(['verify' => true], function () {
-	Route::get('/register-teachers', 'Auth\RegisterController@registerTeacher');
-	Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
-});
+Route::get('/register-teachers', 'Auth\RegisterController@registerTeacher');
+Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
 //Route Untuk Admin saja
 Route::group(['middleware' => ['role:admin']], function () {

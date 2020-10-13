@@ -16,10 +16,9 @@ class SendMail extends Mailable
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($user)
     {
-        $this->name = $name;
-        
+        $this->user = $user;
     }
 
     /**
@@ -29,11 +28,10 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('sumiartinisrirahayu@gmail.com')
-        ->view('email')
+        return $this->view('email')
         ->with(
         [
-            'name' => $this->name
+            'user' => $this->user
         ]);
     }
 }
