@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class RegisterController extends Controller
 {
@@ -76,43 +78,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user = User::create([
+            'usr_name' => $data['usr_name'],
+            'usr_email' => $data['usr_email'],
+            'usr_phone' => $data['usr_phone'],
+            'usr_password' => Hash::make($data['password']),
+        ]);
+
         if($data['role'] == 1) {
-        $students = User::create([
-            'usr_name' => $data['usr_name'],
-            'usr_email' => $data['usr_email'],
-            'usr_phone' => $data['usr_phone'],
-            'usr_password' => Hash::make($data['password']),
-        ]);
-
-        $students->assignRole('student');
-
-        return $students;
+            $user->assignRole('student');
+        }elseif($data['role'] == 2) {
+            $user->assignRole('teacher');
+        }elseif($data['role'] == 3) {
+            $user->assignRole('staff');
         }     
-
-        if($data['role'] == 2) {
-        $students = User::create([
-            'usr_name' => $data['usr_name'],
-            'usr_email' => $data['usr_email'],
-            'usr_phone' => $data['usr_phone'],
-            'usr_password' => Hash::make($data['password']),
-        ]);
-
-        $students->assignRole('teacher');
-
-        return $students;
-        }
-
-        if($data['role'] == 3) {
-        $students = User::create([
-            'usr_name' => $data['usr_name'],
-            'usr_email' => $data['usr_email'],
-            'usr_phone' => $data['usr_phone'],
-            'usr_password' => Hash::make($data['password']),
-        ]);
-
-        $students->assignRole('staff');
-
-        return $students;
-        }     
+        Mail::to($data['usr_email'])->send(new SendMail($data['usr_name']));
+        return $user;
+        
     }
 }
