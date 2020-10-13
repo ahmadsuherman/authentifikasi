@@ -93,7 +93,9 @@ class RegisterController extends Controller
             $user->assignRole('teacher');
         }elseif($data['role'] == 3) {
             $user->assignRole('staff');
-        }     
+        }
+
+            
         Mail::to($data['usr_email'])->send(new SendMail($user));
         return $user;
         
