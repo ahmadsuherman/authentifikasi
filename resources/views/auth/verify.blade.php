@@ -18,18 +18,13 @@
                     @csrf
                     akun anda belum diverifikasi, harap cek email anda termasuk spam pada email anda <br>
                     <input type="submit" name="resend-verification" value="Kirim ulang email verifikasi" id="btnSubmit">
-                    <script>
-                        $(document).ready(function(){
-                            $(#resendVerification).submit(function (e) {
-                                e.preventDefault();
-                                $(#btnSubmit).attr("disabled", true); 
-                                return true;
-                            });    
-                        });
-                    </script>
                 </form>    
             </div>
         </div>
     </div>
 </div>
+
+
+
+
 @endsection

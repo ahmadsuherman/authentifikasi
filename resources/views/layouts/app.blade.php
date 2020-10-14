@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,12 +23,6 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png"
-                width="30"
-                height="30"
-                alt=""
-            />
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -92,5 +87,18 @@
             @yield('content')
         </main>
     </div>
+
+
+<script>
+    $(document).ready(function(){
+        $("#resendVerification").submit(function (e) {
+            $(this).find("button[type='submit']").prop('disabled',true);
+            $("#btnSubmit").attr("disabled", true); 
+            return true;
+        });    
+    });
+</script>
 </body>
+
 </html>
+

@@ -32,6 +32,7 @@ class AccountController extends Controller
     }
 
     public function resendVerification(){
+    
         $user = Auth::user();
         Mail::to($user['usr_email'])->send(new SendMail($user));
         return redirect()->back()->with('success', 'Email verifikasi berhasil dikirim ulang'); 

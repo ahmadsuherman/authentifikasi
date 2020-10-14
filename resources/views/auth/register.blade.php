@@ -44,7 +44,7 @@
 
                             <div class="col-md-6">
                                 <input id="usr_phone" value="{{ old('usr_phone') }}" type="number" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone">
-
+                                    
                                 @error('usr_phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

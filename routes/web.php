@@ -21,23 +21,11 @@ Route::get('/account/{userId}/{userVerificationToken}/activate', 'Auth\AccountCo
 Route::get('/account/waiting-verification', 'Auth\AccountController@waitingVerification');
 Route::post('/account/resend-verification', 'Auth\AccountController@resendVerification');
 
-
 //Route untuk register teacher dan staff
 Route::get('/register-teachers', 'Auth\RegisterController@registerTeacher');
 Route::get('/register-staff', 'Auth\RegisterController@registerStaff');
 
-//Route Untuk Admin saja
-Route::group(['middleware' => ['role:admin']], function () {
-	Route::get('/dashboard-admin', 'Admin\AdminController@index')->name('dashboard.admin');
-});
-
-//Route Untuk Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
+//Route Untuk Admin, Student, Teacher, Staff TU, jika register dan login maka akan ke halaman ini 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/dashboard', 'User\UserController@index')->name('dashboard.users');
 });
-
-// Route::get('/kirim-email', 'EmailController@index');
-
-
-
-
