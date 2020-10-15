@@ -91,7 +91,7 @@
 
 <script>
     $(document).ready(function(){
-        $("#resendVerification").submit(function (e) {
+        $("#submitForm").submit(function (e) {
             $(this).find("button[type='submit']").prop('disabled',true);
             $("#btnSubmit").attr("disabled", true); 
             return true;

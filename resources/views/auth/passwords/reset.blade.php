@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+                    <form method="POST" action="{{ route('password.update') }}" id="submitForm">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -51,7 +51,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="btnSubmit">
                                     {{ __('Reset Password') }}
                                 </button>
                             </div>
