@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -20,7 +21,8 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('admin123123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
         ]);
 
         $admin->assignRole('admin');
@@ -31,7 +33,8 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('student123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
         ]);
 
         $siswa->assignRole('student');
@@ -42,7 +45,8 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('teacher123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
         ]);
 
         $guru->assignRole('teacher');
@@ -53,7 +57,8 @@ class UserSeeder extends Seeder
             'usr_phone' => '08213456789',
             'usr_password' => Hash::make('staff123'),
             'usr_email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
         ]);
 
         $staff_TU->assignRole('staff');

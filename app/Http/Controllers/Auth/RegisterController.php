@@ -25,7 +25,7 @@ class RegisterController extends Controller
     |
     */
 
-    
+
     public function registerTeacher()
     {
         return view('auth.register-teacher');
@@ -84,20 +84,23 @@ class RegisterController extends Controller
             'usr_email' => $data['usr_email'],
             'usr_phone' => $data['usr_phone'],
             'usr_password' => Hash::make($data['password']),
-            'usr_verification_token' => str_replace ('/', '', Hash::make(Str::random(12))),
+            'usr_verification_token' => str_replace('/', '', Hash::make(Str::random(12))),
+            'usr_is_active' => true,
         ]);
 
-        if($data['role'] == 1) {
+        if ($data['role'] == 1) {
             $user->assignRole('student');
-        } elseif($data['role'] == 2) {
+            $user->created_by = $user->usr_id;
+        } elseif ($data['role'] == 2) {
             $user->assignRole('teacher');
-        } elseif($data['role'] == 3) {
+            $user->created_by = $user->usr_id;
+        } elseif ($data['role'] == 3) {
             $user->assignRole('staff');
+            $user->created_by = $user->usr_id;
         }
 
-            
+
         Mail::to($data['usr_email'])->send(new SendMail($user));
         return $user;
-        
     }
 }

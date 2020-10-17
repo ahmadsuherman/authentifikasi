@@ -17,15 +17,22 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('usr_id');
             $table->string('usr_name');
             $table->string('usr_email')->unique();
-            $table->string('usr_phone',15);
+            $table->string('usr_phone', 15);
             $table->string('usr_profile_picture')->nullable();
             $table->string('usr_verification_token')->nullable();
             $table->timestamp('usr_email_verified_at')->nullable();
             $table->string('usr_password');
             $table->rememberToken();
+            $table->biginteger('usr_created_by')->unsigned()->nullable();
+            $table->biginteger('usr_updated_by')->unsigned()->nullable();
+            $table->biginteger('usr_deleted_by')->unsigned()->nullable();
+            $table->boolean('usr_is_active');
             $table->timestamps();
-            $table->softDeletes();
-            
+            $table->string('usr_sys_note')->nullable();
+
+            $table->foreign('usr_created_by')->references('usr_id')->on('users')->onDelete('cascade');
+            $table->foreign('usr_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
+            $table->foreign('usr_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
         });
     }
 
