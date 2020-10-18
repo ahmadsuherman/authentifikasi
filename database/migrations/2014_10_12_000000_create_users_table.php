@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->biginteger('usr_created_by')->unsigned()->nullable();
             $table->biginteger('usr_updated_by')->unsigned()->nullable();
             $table->biginteger('usr_deleted_by')->unsigned()->nullable();
-            $table->boolean('usr_is_active');
+            $table->boolean('usr_is_active'); //kolom ini digunakan untuk users jika value 1 maka aktif jika 0 maka tidak aktif jadi sebagai pengganti soft delete
             $table->timestamps();
             $table->string('usr_sys_note')->nullable();
 

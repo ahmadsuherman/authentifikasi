@@ -42,8 +42,8 @@
                         <div class="form-group row">
                             <label for="usr_phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="usr_phone" value="{{ old('usr_phone') }}" type="number" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone">
+                            <div class="col-md-6" id="only-number">
+                                <input id="usr_phone" value="{{ old('usr_phone') }}" type="text" class="form-control @error('usr_phone') is-invalid @enderror" name="usr_phone" autocomplete="off">
 
                                 @error('usr_phone')
                                 <span class="invalid-feedback" role="alert">

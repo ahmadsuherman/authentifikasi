@@ -25,7 +25,7 @@ class AccountController extends Controller
             $user->usr_email_verified_at = now();
             $user->save();
 
-            return redirect('/dashboard')->with('success', 'Selamat akun anda berhasil diverifikasi');;
+            return redirect('/dashboard')->with(['success' => 'Selamat akun anda berhasil diverifikasi']);;
         }
     }
 
@@ -44,7 +44,7 @@ class AccountController extends Controller
 
         $user = Auth::user();
         Mail::to($user['usr_email'])->send(new SendMail($user));
-        return redirect()->back()->with(['success', 'Email verifikasi berhasil dikirim ulang']);
+        return redirect()->back()->with(['success' => 'Email verifikasi berhasil dikirim ulang']);
     }
 
     public function forgotPassword()
