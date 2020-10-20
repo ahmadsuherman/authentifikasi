@@ -33,6 +33,10 @@ chmod 755 authentifikasi
 ### Step 2
 Masuk ke direktori folder repository yang telah diunduh
 
+```
+cd authentifikasi
+```
+
 ![img](https://github.com/AhmadSuherman/authentifikasi/blob/master/public/readme_img/masuk%20folder%20yang%20di%20clone.PNG)
 
 lalu composer install
