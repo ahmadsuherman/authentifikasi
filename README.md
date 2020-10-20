@@ -2,7 +2,6 @@
 
 * [Mengunduh repository ke dalam komputer](https://github.com/AhmadSuherman/authentifikasi/blob/master/README.md#mengunduh-repository)
 * [Menjalankan repository yang telah diunduh](https://github.com/AhmadSuherman/authentifikasi/blob/master/README.md#menjalankan-aplikasi)
-* [Memperbarui repository yang telah diunduh](https://github.com/AhmadSuherman/authentifikasi/blob/master/README.md#memperbarui-repository)
 
 
 ## Mengunduh Repository
@@ -24,7 +23,7 @@ git clone https://github.com/AhmadSuherman/authentifikasi.git
 Setelah mengunduh repository selanjutnya mengatur hak akses untuk mengeksekusi file, menggunakan perintah `chmod 755`. folder repository yang telah di unduh. 
 
 ```
-chmod 755 <folder>
+chmod 755 authentifikasi
 ```
 
 #### Contoh
@@ -94,17 +93,4 @@ php artisan serve
 Lalu masuk ke web browser maka akan tampil seperti berikut.
 
 ![img](https://github.com/AhmadSuherman/authentifikasi/blob/master/public/readme_img/chrome.PNG)
-
-## Memperbarui Repository
-
-Perbarui repository yang telah diunduh ke dalam komputer menggunakan perintah
-`git pull`.
-
-```
-git pull origin <nama branch>
-```
-
-#### Contoh
-
-![img](https://github.com/AhmadSuherman/authentifikasi/blob/master/public/readme_img/pull.PNG)
 
