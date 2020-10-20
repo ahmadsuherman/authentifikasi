@@ -1,7 +1,9 @@
 # Panduan Penggunaan Git
 
 * [Mengunduh repository ke dalam komputer](https://github.com/AhmadSuherman/authentifikasi/blob/master/README.md#mengunduh-repository)
+* [Menjalankan repository yang telah diunduh](https://github.com/AhmadSuherman/authentifikasi/blob/master/README.md#menjalankan-aplikasi)
 * [Memperbarui repository yang telah diunduh](https://github.com/AhmadSuherman/authentifikasi/blob/master/README.md#memperbarui-repository)
+
 
 ## Mengunduh Repository
 
@@ -9,7 +11,7 @@ Unduh repository ke dalam komputer menggunakan perintah `git clone`. Url
 repository dapat dilihat di dalam repository yang diinginkan.
 
 ```
-git clone <url repository> <folder tujuan>
+git clone https://github.com/AhmadSuherman/authentifikasi.git
 ```
 
 #### Contoh
